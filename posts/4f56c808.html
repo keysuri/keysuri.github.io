@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hexo部署到Coding和Gitee | keysuri's Blog</title><meta name="keywords" content="Hexo"><meta name="author" content="keysuri"><meta name="copyright" content="keysuri"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言  去年部署到Coding上是看的Yafine的教程，如今已过时效，网上也搜不到合适的教程，不得已只能自己摸索，踩了些坑总算是成了。  部署到Coding注册登录Coding官网 现在Coding被收入腾讯云名下，你所注册的账号是可以用来登录腾讯云的。 所以如果已有腾讯云账号且实名了的情况下，为了方便统一管理，建议注册时用微信扫码登录，这样你的Coding账户就和已有的腾讯云账号绑定了，之后部">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo部署到Coding和Gitee">
+<meta property="og:url" content="https://chenzkun.top/posts/4f56c808.html">
+<meta property="og:site_name" content="keysuri&#39;s Blog">
+<meta property="og:description" content="前言  去年部署到Coding上是看的Yafine的教程，如今已过时效，网上也搜不到合适的教程，不得已只能自己摸索，踩了些坑总算是成了。  部署到Coding注册登录Coding官网 现在Coding被收入腾讯云名下，你所注册的账号是可以用来登录腾讯云的。 所以如果已有腾讯云账号且实名了的情况下，为了方便统一管理，建议注册时用微信扫码登录，这样你的Coding账户就和已有的腾讯云账号绑定了，之后部">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/timg2.jpg">
+<meta property="article:published_time" content="2021-04-11T12:02:09.000Z">
+<meta property="article:modified_time" content="2021-04-12T16:20:01.250Z">
+<meta property="article:author" content="keysuri">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/timg2.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/img/favicon.png"><link rel="canonical" href="https://chenzkun.top/posts/4f56c808"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"本文章更新于","messageNext":"天前，文中某些信息可能已经过时，如有任何问题，请在文章末尾评论处留言！"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-13 00:20:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/css/scroll.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/css/footer.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/css/custom.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fab fa-staylinked"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Artitalk/"><i class="fa-fw fas fa-comment"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/keysuri/img/wallpaper/1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">keysuri's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fab fa-staylinked"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Artitalk/"><i class="fa-fw fas fa-comment"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hexo部署到Coding和Gitee</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-11T12:02:09.000Z" title="发表于 2021-04-11 20:02:09">2021-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-12T16:20:01.250Z" title="更新于 2021-04-13 00:20:01">2021-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">960</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hexo部署到Coding和Gitee"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/4f56c808.html#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p> 去年部署到Coding上是看的<a target="_blank" rel="noopener" href="https://yafine-blog.cn/posts/51fb.html">Yafine的教程</a>，如今已过时效，网上也搜不到合适的教程，不得已只能自己摸索，踩了些坑总算是成了。</p>
+</blockquote>
+<h2 id="部署到Coding"><a href="#部署到Coding" class="headerlink" title="部署到Coding"></a>部署到Coding</h2><h4 id="注册登录"><a href="#注册登录" class="headerlink" title="注册登录"></a>注册登录</h4><p><a target="_blank" rel="noopener" href="https://coding.net/">Coding官网</a></p>
+<p>现在Coding被收入腾讯云名下，你所注册的账号是可以用来登录腾讯云的。</p>
+<div class="note info modern"><p>所以如果已有腾讯云账号且实名了的情况下，为了方便统一管理，建议注册时用微信扫码登录，这样你的Coding账户就和已有的腾讯云账号绑定了，之后部署时不需要再实名认证了</p>
+</div>
+
+<h4 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h4><p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-7.png"></p>
+<p>然后打开<code>C:\Users\你的电脑账户名\.ssh</code>,用文本编辑器打开 <code>id_rsa.pub</code>，将里面的内容复制粘贴到对应位置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-8.png"></p>
+<p>然后打开 cmd 控制台输入 <code>ssh -T git@e.coding.net</code>，第一次建立连接会要求信任主机，输入相关的用户名或者密码，在控制台输入验证，验证成功即可。</p>
+<h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>在左侧菜单栏中选择<code>项目</code>，再点击页面右上角<code>创建项目</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-1.png"></p>
+<p>然后选择DevOps项目</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-3.png"></p>
+<div class="note warning modern"><p>第一次创建时会自动创建一个引导项目，返回后再创建一个即可</p>
+</div>
+
+<h4 id="创建代码仓库"><a href="#创建代码仓库" class="headerlink" title="创建代码仓库"></a>创建代码仓库</h4><p>进入项目后，在左侧菜单栏中选择<code>代码仓库</code>，再点击页面右上角<code>创建代码仓库</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-4.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-5.png"></p>
+<div class="note warning modern"><p>之前代码仓库名称时需要和用户名一致的，保险起见可以将仓库名设为用户名</p>
+</div>
+
+<h4 id="配置博客根目录配置文件"><a href="#配置博客根目录配置文件" class="headerlink" title="配置博客根目录配置文件"></a>配置博客根目录配置文件</h4><p>进入代码仓库中复制下仓库地址</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-6.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-10.png"></p>
+<p>然后再执行 <code>hexo clean</code> &amp;&amp; <code>hexo g -d</code> 部署到 coding</p>
+<h4 id="静态网站构建"><a href="#静态网站构建" class="headerlink" title="静态网站构建"></a>静态网站构建</h4><p>打开你的 coding 项目管理页,选择<code>网站托管</code>-&gt;<code>新建网站</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-11.png"></p>
+<p>选择<code>静态网站</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-12.png"></p>
+<p>按图示操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-13.png"></p>
+<div class="note warning modern"><p>网站类型选择静态网站，不要选Hexo，没有备案域名的情况下节点只能选香港</p>
+</div>
+
+<p>确定后会自动进行部署，当出现如下的页面效果，就说明部署成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-14.png"></p>
+<p>进入后访问所给的地址就能进入网站了</p>
+<h4 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h4><p>进入如下页面添加域名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-15.png"></p>
+<p>然后按照他所提示的，添加后到域名托管商更改解析记录</p>
+<p>我的域名是阿里的，配置如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-16.png"></p>
+<p>DNS解析缓存需要一定时间，请耐心等待几分钟</p>
+<p>接着点击证书状态，跳转到腾讯云SSL证书控制台，点击<code>域名验证</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-17.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-18.png"></p>
+<p>接着按提示到域名解析商添加解析记录，耐心等待后邮箱会收到证书颁发的邮件</p>
+<div class="note warning modern"><p>申请证书时要把github的解析暂停，不然很可能证书颁发不了</p>
+</div>
+
+<blockquote>
+<p>证书颁发成功后Coding会自动重新部署静态网站，时间可能较长，等待两三分钟后就能通过域名访问网站了，若长时间无反应可手动部署</p>
+</blockquote>
+<p>查看部署状态方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-19.png"></p>
+<h2 id="部署到Gitee"><a href="#部署到Gitee" class="headerlink" title="部署到Gitee"></a>部署到Gitee</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/">码云官网</a>进行注册，注册完成后，创建仓库</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-9.png"></p>
+<ul>
+<li>添加秘钥</li>
+</ul>
+<p>同coding<img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-20.png"></p>
+<ul>
+<li>复制项目地址，配置本地文件<img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-21.png"></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-10.png"></p>
+<p>然后执行 <code>hexo clean</code> &amp;&amp; <code>hexo g -d</code>，部署成功后，点击服务 —&gt;Gitee Pages</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-22.png"></p>
+<p>选择<code>启动</code>即可部署</p>
+<p><img src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/coding-23.png"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li><p>主要是找教程时受到误导，以为部署到Coding上时只能用腾讯云的解析服务，还得把阿里的DNS改成腾讯的，在腾讯DNS 解析 DNSPod平台折腾来折腾去，尝试几次后发现可以直接用域名商的解析，不需要那么复杂。</p>
+</li>
+<li><p>gitee访问速度很快，自定义域名需要付费，所以我主要就部署在Coding和GitHub上，并使用双线部署，国内Coding,国外GitHub。</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">keysuri</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenzkun.top/posts/4f56c808.html">https://chenzkun.top/posts/4f56c808.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenzkun.top" target="_blank">keysuri's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/timg2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/keysuri/cdn@1.0/source/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/5318b452.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/cover1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">买不到的数目-蓝桥杯题解</div></div></a></div><div class="next-post pull-right"><a href="/posts/730dd3ed.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/typora-icon.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MarkDown常用语法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/4a17b156.html" title="Hello World"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-10</div><div class="title">Hello World</div></div></a></div><div><a href="/posts/86749132.html" title="Hexo博客搭建与优化"><img class="cover" src="https://cdn.jsdelivr.net/gh/keysuri/img/postimages/toc.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-10</div><div class="title">Hexo博客搭建与优化</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0Coding"><span class="toc-text">部署到Coding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95"><span class="toc-text">注册登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0SSH%E5%85%AC%E9%92%A5"><span class="toc-text">添加SSH公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-text">创建代码仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E6%A0%B9%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置博客根目录配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E6%9E%84%E5%BB%BA"><span class="toc-text">静态网站构建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D"><span class="toc-text">自定义域名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0Gitee"><span class="toc-text">部署到Gitee</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By keysuri</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">人生如逆旅，我亦是行人！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-3g3hf8yaff35d981',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-3g3hf8yaff35d981',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
