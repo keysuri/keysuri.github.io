@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Python取中位数</title>
+      <link href="posts/f22d4a12.html"/>
+      <url>posts/f22d4a12.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>中位数是一个可将数值集合划分为相等的上下两部分的一个数值。如果列表数据的个数是奇数，则列表中间那个数据就是列表数据的中位数；如果列表数据的个数是偶数，则中位数为列表中间那2个数据的算术平均值</p></blockquote><p><strong>正常情况下，我们需要将排序好的数组分情况讨论：</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_median</span>(<span class="params">data</span>):</span></span><br><span class="line">    data.sort()</span><br><span class="line">    size=<span class="built_in">len</span>(data)</span><br><span class="line">    <span class="keyword">if</span> size%<span class="number">2</span>==<span class="number">0</span>:  <span class="comment">#数组长度为偶数</span></span><br><span class="line">    median=(data[size//<span class="number">2</span>]+data[size//<span class="number">2</span>-<span class="number">1</span>])/<span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        median=(data[size//<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">return</span> median </span><br></pre></td></tr></table></figure><p><strong>优化方法：</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_median</span>(<span class="params">data</span>):</span></span><br><span class="line">    data.sort()</span><br><span class="line">    half=<span class="built_in">len</span>(data)//<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (data[half]+data[~half])/<span class="number">2</span></span><br></pre></td></tr></table></figure><blockquote><p><strong>关于取反符号<code>~</code>：就是计算机会将操作数所对应的二进制表达式的每一个位进行取反计算（0变1,1变0）</strong></p><p>例如数字<code>9</code>，二进制表示为<code>01001</code>，取反后为<code>10110</code>，结果为<code>-10</code></p><p>为什么为<code>-10</code>呢？现在计算机普遍使用补码表示负数，而要求其值的方法是：先看符号位（即最左的一位），如果是1代表是负数，如果是0代表是正数，然后对该值取反再+1，得到其源码</p><p>对本例中的<code>10110</code>，其符号位是1，代表它是负数（<code>-</code>），欲求其源码，先对其取反（<code>01001</code>），然后再+1（<code>01010</code>），最后在得到的源码前加一个符号（<code>-01010=-10</code>）</p><p>因此，可以总结出<code>~</code>按位取反的计算结论是：<code>~n=-(n+1)</code></p></blockquote><p><strong>这个优化的方法巧妙地利用了Python中列表的负引索：</strong></p><p><strong>关于<code>return (data[half]+data[~half])/2</code></strong></p><p>如排序后得到序列<code>[1,2,3,4,5,6]</code>，其列表长度为偶数，中位数由列表中间两位元素3（索引为2），4（索引为3）决定。而元素4的负索引为-3，恰好为索引2的取反数。</p><p>若排序后得到序列<code>[1,2,3,4,5]</code>，其列表长度为奇数，中位数由列表中间元素3（索引为2，负引索为-3）决定。仍然符合代码。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++开大数组溢出问题</title>
       <link href="posts/a78f6063.html"/>
       <url>posts/a78f6063.html</url>
